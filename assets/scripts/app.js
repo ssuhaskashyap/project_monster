@@ -28,47 +28,98 @@ adjustHealthBars(chosenMaxLife);
 
 function writeLog (ev, val, userHealth, monsterHealth) {
   let logEntry;
-  if (ev === LOG_EVENT_USER_ATTACK) {
-    logEntry = {
-      event: ev,
-      value: val,
-      target: 'MONSTER',
-      finalUserHealth: userHealth,
-      finalMonsterHealth: monsterHealth,
-    };
-  } else if (ev === LOG_EVENT_STRONG_USER_ATTACK) {
-    logEntry = {
-      event: ev,
-      value: val,
-      target: 'MONSTER',
-      finalUserHealth: userHealth,
-      finalMonsterHealth: monsterHealth,
-    };
-  } else if (ev === LOG_EVENT_MONSTER_ATTACK) {
-    logEntry = {
-      event: ev,
-      value: val,
-      target: 'USER',
-      finalUserHealth: userHealth,
-      finalMonsterHealth: monsterHealth,
-    };
-  } else if (ev === LOG_EVENT_HEAL_USER) {
-    logEntry = {
-      event: ev,
-      value: val,
-      target: 'USER',
-      finalUserHealth: userHealth,
-      finalMonsterHealth: monsterHealth,
-    };
-  } else if (ev === LOG_EVENT_GAME_OVER) {
-    logEntry = {
-      event: ev,
-      value: val,
-      target: 'MONSTER',
-      finalUserHealth: userHealth,
-      finalMonsterHealth: monsterHealth,
-    };
+
+  switch(ev) {
+    case LOG_EVENT_USER_ATTACK:
+      logEntry = {
+        event: ev,
+        value: val,
+        target: 'MONSTER',
+        finalUserHealth: userHealth,
+        finalMonsterHealth: monsterHealth,
+      };
+      break;
+    case LOG_EVENT_STRONG_USER_ATTACK:
+      logEntry = {
+        event: ev,
+        value: val,
+        target: 'MONSTER',
+        finalUserHealth: userHealth,
+        finalMonsterHealth: monsterHealth,
+      };
+      break;
+    case LOG_EVENT_MONSTER_ATTACK:
+      logEntry = {
+        event: ev,
+        value: val,
+        target: 'USER',
+        finalUserHealth: userHealth,
+        finalMonsterHealth: monsterHealth,
+      };
+      break;
+    case LOG_EVENT_HEAL_USER:
+      logEntry = {
+        event: ev,
+        value: val,
+        target: 'USER',
+        finalUserHealth: userHealth,
+        finalMonsterHealth: monsterHealth,
+      };
+      break;
+    case LOG_EVENT_GAME_OVER:
+      logEntry = {
+        event: ev,
+        value: val,
+        target: 'MONSTER',
+        finalUserHealth: userHealth,
+        finalMonsterHealth: monsterHealth,
+      };
+      break;
+    default:
+      logEntry = {};
   }
+
+  // if (ev === LOG_EVENT_USER_ATTACK) {
+  //   logEntry = {
+  //     event: ev,
+  //     value: val,
+  //     target: 'MONSTER',
+  //     finalUserHealth: userHealth,
+  //     finalMonsterHealth: monsterHealth,
+  //   };
+  // } else if (ev === LOG_EVENT_STRONG_USER_ATTACK) {
+  //   logEntry = {
+  //     event: ev,
+  //     value: val,
+  //     target: 'MONSTER',
+  //     finalUserHealth: userHealth,
+  //     finalMonsterHealth: monsterHealth,
+  //   };
+  // } else if (ev === LOG_EVENT_MONSTER_ATTACK) {
+  //   logEntry = {
+  //     event: ev,
+  //     value: val,
+  //     target: 'USER',
+  //     finalUserHealth: userHealth,
+  //     finalMonsterHealth: monsterHealth,
+  //   };
+  // } else if (ev === LOG_EVENT_HEAL_USER) {
+  //   logEntry = {
+  //     event: ev,
+  //     value: val,
+  //     target: 'USER',
+  //     finalUserHealth: userHealth,
+  //     finalMonsterHealth: monsterHealth,
+  //   };
+  // } else if (ev === LOG_EVENT_GAME_OVER) {
+  //   logEntry = {
+  //     event: ev,
+  //     value: val,
+  //     target: 'MONSTER',
+  //     finalUserHealth: userHealth,
+  //     finalMonsterHealth: monsterHealth,
+  //   };
+  // }
   battleLog.push(logEntry);
 }
 
